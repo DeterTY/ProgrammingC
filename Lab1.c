@@ -11,6 +11,13 @@ int main()
     b = 1;
     c = -2.2;
     
+    printf("Введите a: ");
+    scanf("%lf", &a);
+    printf("Введите b: ");
+    scanf("%lf", &b);
+    printf("Введите c: ");
+    scanf("%lf", &c);
+    
     d = b * b - 4 * a * c;
     printf("d = %lf\n", d);
     
