@@ -6,16 +6,18 @@ int main()
     double a, b, c;
     double d;
     double x1, x2;
+    int i;
     
     a = 5.1;
     b = 1;
     c = -2.2;
     
-    printf("Введите a: ");
+    do {
+    printf("Введите a:");
     scanf("%lf", &a);
-    printf("Введите b: ");
+    printf("Введите b:");
     scanf("%lf", &b);
-    printf("Введите c: ");
+    printf("Введите c:");
     scanf("%lf", &c);
     
     d = b * b - 4 * a * c;
@@ -33,6 +35,9 @@ int main()
     }
     
     if (d < 0) {
-        printf("Корней нет");
+        printf("Корней нет\n");
     }
+    printf("Продолжить? 1 - да, 2 - нет: ");
+    scanf("%d", &i);
+    } while (i != 2);
 }
