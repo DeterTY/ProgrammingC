@@ -2,29 +2,29 @@
 
 int main()
 {
-    double m[3][3];
+    double m1[3][3];
     int i, j;
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 3; j++)
         {
-            printf("a[%d][%d] = ", i, j);
-            scanf("%lf", &m[i][j]);
+            printf("m1[%d][%d] = ", i, j);
+            scanf("%lf", &m1[i][j]);
         }
     }
     double s1, s2;
-    s1 = m[0][0] + m[1][1] + m[2][2];
+    s1 = m1[0][0] + m1[1][1] + m1[2][2];
     printf("Сумма элементов по главной диагонали = %lf\n", s1);
-    s1 = m[0][2] + m[1][1] + m[2][0];
-    printf("Сумма элементов по побочной диагонали = %lf\n", s1);
+    s2 = m1[0][2] + m1[1][1] + m1[2][0];
+    printf("Сумма элементов по побочной диагонали = %lf\n", s2);
 
-    int p[2][2];
+    int m2[2][2];
     for (i = 0; i < 2; i++)
     {
         for (j = 0; j < 2; j++)
         {
-            printf("a[%d][%d] = ", i, j);
-            scanf("%d", &p[i][j]);
+            printf("m2[%d][%d] = ", i, j);
+            scanf("%d", &m2[i][j]);
         }
     }
     int kv[2][2];
@@ -35,7 +35,7 @@ int main()
         {
             for (k = 0; k < 2; k++)
             {
-                kv[i][j] += p[i][k] * p[k][j];
+                kv[i][j] += m2[i][k] * m2[k][j];
                 printf("%d ", kv[i][j]);
             }
         }
