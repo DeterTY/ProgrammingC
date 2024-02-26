@@ -33,11 +33,13 @@ int main()
     {
         for (j = 0; j < 2; j++)
         {
+            kv[i][j] = 0;
             for (k = 0; k < 2; k++)
             {
                 kv[i][j] += m2[i][k] * m2[k][j];
-                printf("%d ", kv[i][j]);
             }
+            printf("%d ", kv[i][j]);
         }
+         printf("\n");
     }
 }
