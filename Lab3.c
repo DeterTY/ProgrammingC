@@ -3,7 +3,7 @@
 int main()
 {
     char s[80];
-    fread(s, sizeof(s));???
+    fread(s, sizeof(s));????
     int i = 0;
     while (s[i] != '\0')
     {
