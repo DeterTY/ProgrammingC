@@ -16,6 +16,6 @@ int main() {
         }
     }
     
-    printf("Bpvtytyyfz cnhjrf: %s", str);
+    printf("Изменённая строка: %s", str);
     return 0;
 }
