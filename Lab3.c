@@ -1,17 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 
-int main()
-{
-    char s[80];
-    fread(s, sizeof(s));????
-    int i = 0;
-    while (s[i] != '\0')
+int main() {
+    char str[80];
+    int i;
+    
+    printf("Строка: ");
+    fgets(str, 80, stdin);
+
+    for (i = 0; str[i] != '\0'; i++) 
     {
-        if (s[i] == 'a')
-            s[i] = 'A';
-        else if (s[i] == 'b')
-            s[i] = 'B';
-        i++;
+        if(str[i] == 'a' || str[i] == 'b') 
+        {
+            str[i] = str[i] - 32;
+        }
     }
-    printf("%s\n", s);
+    
+    printf("Изменено на: %s", str);
+    return 0;
 }
