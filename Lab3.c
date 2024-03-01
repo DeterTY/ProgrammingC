@@ -16,6 +16,6 @@ int main() {
         }
     }
     
-    printf("Изменено на: %s", str);
+    printf("Bpvtytyyfz cnhjrf: %s", str);
     return 0;
 }
