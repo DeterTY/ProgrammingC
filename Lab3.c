@@ -4,10 +4,7 @@
 int main() {
     char str[80];
     int i;
-    
-    printf("Строка: ");
     fgets(str, 80, stdin);
-
     for (i = 0; str[i] != '\0'; i++) 
     {
         if(str[i] == 'a' || str[i] == 'b') 
@@ -15,7 +12,6 @@ int main() {
             str[i] = str[i] - 32;
         }
     }
-    
-    printf("Изменённая строка: %s", str);
+    printf("%s", str);
     return 0;
 }
