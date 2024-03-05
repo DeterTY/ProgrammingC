@@ -7,7 +7,7 @@ int main() {
     fgets(str, 80, stdin);
     for (i = 0; str[i] != '\0'; i++) 
     {
-        if(str[i] == 'a' || str[i] == 'b') 
+        if(str[i] == 'a' or str[i] == 'b') 
         {
             str[i] = str[i] - 32;
         }
