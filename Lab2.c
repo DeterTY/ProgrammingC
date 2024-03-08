@@ -2,43 +2,68 @@
 
 int main()
 {
-    double m1[3][3];
+    int N1 = 3;
+    double m1[N1][N1];
     int i, j;
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < N1; i++)
     {
-        for (j = 0; j < 3; j++)
+        for (j = 0; j < N1; j++)
         {
-            printf("m1[%d][%d] = ", i, j);
+            printf("m1[%d][%d] = ", i + 1, j + 1);
             scanf("%lf", &m1[i][j]);
         }
     }
-    double s1, s2;
-    s1 = m1[0][0] + m1[1][1] + m1[2][2];
-    printf("Сумма элементов по главной диагонали = %lf\n", s1);
-    s2 = m1[0][2] + m1[1][1] + m1[2][0];
-    printf("Сумма элементов по побочной диагонали = %lf\n", s2);
 
-    int m2[2][2];
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < N1; i++)
     {
-        for (j = 0; j < 2; j++)
+        for (j = 0; j < N1; j++)
         {
-            printf("m2[%d][%d] = ", i, j);
-            scanf("%d", &m2[i][j]);
+            printf("%lf  ", m1[i][j]);
+        }
+        printf("\n");
+    }
+
+    double SumGD, SumPD;
+    for (i = 0; i < N1; i++) 
+    {
+        SumGD += m1[i][i];
+        SumPD += m1[N1 - i - 1][i];
+    }
+    printf("Сумма элементов по главной диагонали = %lf\n", SumGD);
+    printf("Сумма элементов по побочной диагонали = %lf\n", SumPD);
+
+    int N2 = 2;
+    double m2[N2][N2];
+    for (i = 0; i < N2; i++)
+    {
+        for (j = 0; j < N2; j++)
+        {
+            printf("m2[%d][%d] = ", i + 1, j + 1);
+            scanf("%lf", &m2[i][j]);
         }
     }
-    int kv[2][2];
-    int k;
-    for (i = 0; i < 2; i++)
+
+    for (i = 0; i < N2; i++)
     {
-        for (j = 0; j < 2; j++)
+        for (j = 0; j < N2; j++)
         {
-            kv[i][j] = 0;
-            for (k = 0; k < 2; k++)
+            printf("%lf  ", m2[i][j]);
+        }
+        printf("\n");
+    }
+
+    int KvadratM2[N2][N2];
+    int k;
+    for (i = 0; i < N2; i++)
+    {
+        for (j = 0; j < N2; j++)
+        {
+            KvadratM2[i][j] = 0;
+            for (k = 0; k < N2; k++)
             {
-                kv[i][j] += m2[i][k] * m2[k][j];
+                KvadratM2[i][j] += m2[i][k] * m2[k][j];
             }
-            printf("%d ", kv[i][j]);
+            printf("%d ", KvadratM2[i][j]);
         }
          printf("\n");
     }
