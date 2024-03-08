@@ -8,10 +8,6 @@ int main()
     double x1, x2;
     int i;
     
-    a = 5.1;
-    b = 1;
-    c = -2.2;
-    
     do 
     {
     printf("Введите a: ");
