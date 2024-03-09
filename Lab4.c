@@ -21,11 +21,18 @@ int main()
     scanf("%lf", &b);
     printf("Введите длину для стороны треугольника C: ");
     scanf("%lf", &c);
+    if ((a + b > c) && (a + c > b) && (b + c > a))
+    {
+       double Perimeter = P(a, b, c);
+       double Square = S(a, b, c);
+       printf("Периметр = %lf\n", Perimeter);
+       printf("Площадь = %lf\n", Square);
+ 
+    }
+    else
+    {
+        printf("Треугольника с такими сторонами не существует.");
+    }
     
-    double Perimeter = P(a, b, c);
-    double Square = S(a, b, c);
-    printf("Периметр = %lf\n", Perimeter);
-    printf("Площадь = %lf\n", Square);
-
     return 0;
 }
