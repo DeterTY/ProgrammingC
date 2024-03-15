@@ -1,46 +1,50 @@
 New.h
 #include <stdlib.h>
 
-double* m(double* m1, double* m2, int n, char f)
+double *m(double *m1, double *m2, int n, char f)
 
 New.c
 #include <stdio.h>
 #include <stdlib.h>
 
-// Функция для вычисления суммы, разности или произведения матриц
-double* m(double* m1, double* m2, int n, char f) {
-    double* rez = (double*)malloc(n * n * sizeof(double)); // Выделение памяти под массив-результат
+double *m(double *m1, double *m2, int n, char f) 
+{
+    double *m1m2 = (double*)malloc(n * n * sizeof(double));
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            int num = i * n + j; // Номер текущего элемента в матрицах
-
-            if (f == '+') {
-                rez[num] = m1[num] + m2[num]; // Сложение
-            } else if (f == '-') {
-                rez[num] = m1[num] - m2[num]; // Вычитание
-            } else if (f == '*') {
-                rez[num] = m1[num] * m2[num]; // Умножение
+    for (int i = 0; i < n; i++) 
+    {
+        for (int j = 0; j < n; j++) 
+        {
+            if (f == '+') 
+            {
+                m1m2[i][j] = m1[i][j] + m2[i][j];
+            } 
+            else if (f == '-') 
+            {
+                m1m2[i][j] = m1[i][j] - m2[i][j];
+            } 
+            else if (f == '*') 
+            {
+                m1m2[i][j] = m1[i][j] * m2[i][j];
             }
         }
     }
-
-    return rez;
+    return m1m2;
 }
  
 
 Основа
 #include <stdio.h>
 #include <stdlib.h>
-#include "New.c" // Подключение файла с функцией m
+#include "New.h"
 
 int main() {
     int n;
     printf("Введите размерность матрицы: ");
     scanf("%d", &n);
 
-    double* m1 = (double*)malloc(n * n * sizeof(double)); // Выделение памяти под первую матрицу
-    double* m2 = (double*)malloc(n * n * sizeof(double)); // Выделение памяти под вторую матрицу
+    double *m1 = (double*)malloc(n * n * sizeof(double));
+    double *m2 = (double*)malloc(n * n * sizeof(double));
 
     printf("Введите элементы первой матрицы:\n");
     for (i = 0; i < n; i++)
@@ -84,15 +88,15 @@ int main() {
     printf("Введите операцию (+, -, *): ");
     scanf("%c", &f);
 
-    double* M = m(m1, m2, n, f); // Вызов функции для вычисления результата
+    double *M = m(m1, m2, n, f);
 
-    for (int i = 0; i < n * n; i++) {
-        printf("%lf ", M[i]);
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            printf("%lf  ", M[i][j]);
+        }
+        printf("\n");
     }
-
-    free(m1);
-    free(m2);
-    free(M);
-
     return 0;
 }
