@@ -43,29 +43,56 @@ int main() {
     double* m2 = (double*)malloc(n * n * sizeof(double)); // Выделение памяти под вторую матрицу
 
     printf("Введите элементы первой матрицы:\n");
-    for (int i = 0; i < n * n; i++) {
-        scanf("%lf", &m1[i]);
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            printf("m1[%d][%d] = ", i + 1, j + 1);
+            scanf("%lf", &m1[i][j]);
+        }
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            printf("%lf  ", m1[i][j]);
+        }
+        printf("\n");
     }
 
     printf("Введите элементы второй матрицы:\n");
-    for (int i = 0; i < n * n; i++) {
-        scanf("%lf", &m2[i]);
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            printf("m1[%d][%d] = ", i + 1, j + 1);
+            scanf("%lf", &m2[i][j]);
+        }
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            printf("%lf  ", m2[i][j]);
+        }
+        printf("\n");
     }
 
     char f;
     printf("Введите операцию (+, -, *): ");
-    scanf(" %c", &f);
+    scanf("%c", &f);
 
-    double* resultMatrix = m(m1, m2, n, f); // Вызов функции для вычисления результата
+    double* M = m(m1, m2, n, f); // Вызов функции для вычисления результата
 
-    printf("Результат операции:\n");
     for (int i = 0; i < n * n; i++) {
-        printf("%lf ", resultMatrix[i]);
+        printf("%lf ", M[i]);
     }
 
     free(m1);
     free(m2);
-    free(resultMatrix);
+    free(M);
 
     return 0;
 }
