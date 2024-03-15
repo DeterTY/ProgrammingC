@@ -1,40 +1,75 @@
-#include <stdio.h>
+New.h
+#include <stdlib.h>
 
-int main()
-{
-    int N = 1;
+double P(double a, double b, double c);
+
+double S(double a, double b, double c);
+
+bool E(double a, double b, double c);
+
+New.c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Функция для вычисления суммы, разности или произведения матриц
+double* m(double* m1, double* m2, int n, char f) {
+    double* rez = (double*)malloc(n * n * sizeof(double)); // Выделение памяти под массив-результат
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            int num = i * n + j; // Номер текущего элемента в матрицах
+
+            if (f == '+') {
+                rez[num] = m1[num] + m2[num]; // Сложение
+            } else if (f == '-') {
+                rez[num] = m1[num] - m2[num]; // Вычитание
+            } else if (f == '*') {
+                rez[num] = m1[num] * m2[num]; // Умножение
+            }
+        }
+    }
+
+    return rez;
+}
+ 
+
+Основа
+#include <stdio.h>
+#include <stdlib.h>
+#include "New.c" // Подключение файла с функцией m
+
+int main() {
+    int n;
     printf("Введите размерность матрицы: ");
-    scanf("%d", &N);
-    
-    double M[N][N];
-    int i, j;
-    for (i = 0; i < N; i++)
-    {
-        for (j = 0; j < N; j++)
-        {
-            printf("M[%d][%d] = ", i + 1, j + 1);
-            scanf("%lf", &M[N][N]);
-        }
+    scanf("%d", &n);
+
+    double* m1 = (double*)malloc(n * n * sizeof(double)); // Выделение памяти под первую матрицу
+    double* m2 = (double*)malloc(n * n * sizeof(double)); // Выделение памяти под вторую матрицу
+
+    printf("Введите элементы первой матрицы:\n");
+    for (int i = 0; i < n * n; i++) {
+        scanf("%lf", &m1[i]);
     }
-    
-    for (i = 0; i < N; i++)
-    {
-        for (j = 0; j < N; j++)
-        {
-            printf("%lf ", M[N][N]);
-        }
-        printf("\n");
+
+    printf("Введите элементы второй матрицы:\n");
+    for (int i = 0; i < n * n; i++) {
+        scanf("%lf", &m2[i]);
     }
-  
+
+    char f;
+    printf("Введите операцию (+, -, *): ");
+    scanf(" %c", &f);
+
+    double* resultMatrix = m(m1, m2, n, f); // Вызов функции для вычисления результата
+
+    printf("Результат операции:\n");
+    for (int i = 0; i < n * n; i++) {
+        printf("%lf ", resultMatrix[i]);
+    }
+
+    free(m1);
+    free(m2);
+    free(resultMatrix);
+
     return 0;
 }
-
-2) А также ввести с консоли знак операции: '+', '-' или '*'. 
-  
-3) Написать функцию, вычисляющую
-сумму, разность или произведение данных матриц (их передать по указателю) и
-возвращающую указатель на массив-результат. 
-  
-4) Разместить эту функцию в отдельном модуле (отличном от того, где располагается функция main()). 
-  
-5) Выдать на консоль значения полученного вектора
