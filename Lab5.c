@@ -86,7 +86,7 @@ int main() {
 
     char f;
     printf("Введите операцию (+, -, *): ");
-    scanf("%c", &f);
+    scanf(" %c", &f);
 
     double *M = m(m1, m2, n, f);
 
