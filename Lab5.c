@@ -1,11 +1,7 @@
 New.h
 #include <stdlib.h>
 
-double P(double a, double b, double c);
-
-double S(double a, double b, double c);
-
-bool E(double a, double b, double c);
+double* m(double* m1, double* m2, int n, char f)
 
 New.c
 #include <stdio.h>
