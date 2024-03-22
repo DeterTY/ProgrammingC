@@ -1,32 +1,11 @@
-New.h
-#include <stdbool.h>
+// Лабораторная работа №4. Задание:
+// Написать функции, вычисляющие периметр и площадь треугольника по
+// значениям длин трёх его сторон. Разместить их в отдельном модуле (отличном от того,
+// где располагается функция main( )). Ввести с консоли значения длин сторон
+// треугольника (с проверкой на корректность неравенства треугольника) и выдать на
+// консоль вычисленные с помощью написанных функций значения его периметра и
+// площади.
 
-double P(double a, double b, double c);
-
-double S(double a, double b, double c);
-
-bool E(double a, double b, double c);
-
-New.c
-#include <math.h>
-#include <stdbool.h>
-
-double P(double a, double b, double c)
-{
-    return (a + b + c);
-}
-
-double S(double a, double b, double c)
-{
-    return (sqrt((P(a, b, c) / 2) * ((P(a, b, c) / 2) - a) * ((P(a, b, c) / 2) - b) * ((P(a, b, c) / 2) - c)));
-}
-
-bool E(double a, double b, double c)
-{
-    return ((a + b > c) && (a + c > b) && (b + c > a));
-}
-
-Основа
 #include <stdio.h>
 #include <math.h>
 #include "New.h"
